@@ -31,32 +31,31 @@ int main(void)
   	  /*space*/
   	  case 0:
   		  /*LED on for 1 second*/
-  		  if ((CurrentTicks-PrevTicks) >= 1000){
-  			  PrevTicks = CurrentTicks;
-  			  BSP_LED_Off(LED2);
-  		  }
+  		  while((CurrentTicks-PrevTicks)<= 1000){
+  			CurrentTicks = HAL_GetTick();
+  		  }BSP_LED_Off(LED2);
 	  break;
 	  /*dot*/
   	  case 1:
   		  /*LED on for 1 seconds*/
-  		  if ((CurrentTicks-PrevTicks) >= 1000){
-  			PrevTicks = CurrentTicks;
-  			BSP_LED_On(LED2);
-  		  }
+  		  while ((CurrentTicks-PrevTicks)<= 1000){
+  			CurrentTicks = HAL_GetTick();
+  		  }BSP_LED_On(LED2);
 	  break;
 	  /*dash*/
   	  case 2:
   		  /*LED off for 3 second*/
-  		  if ((CurrentTicks-PrevTicks) >= 1000){
-  			PrevTicks = CurrentTicks;
-  			BSP_LED_On(LED2);
-  		  }
+  		  while ((CurrentTicks-PrevTicks)<=3000){
+  			CurrentTicks = HAL_GetTick();
+  		  }BSP_LED_On(LED2);
 	  break;
 	  }
   while(1){
 	  CurrentTicks = HAL_GetTick();
+	  PrevTicks = CurrentTicks;
 	  for(int i = 0; i < 18; i++) {
 		  cur = signal[i];
+		  PrevTicks = CurrentTicks;
 		  CurrentTicks = HAL_GetTick();
 	  }
   }
