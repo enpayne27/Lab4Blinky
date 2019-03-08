@@ -20,40 +20,39 @@ int main(void)
 	SystemClock_Config();
 	/* Configure the User LED */
 	BSP_LED_Init(LED2);
-	BSP_LED_On(LED2);
+	BSP_LED_Off(LED2);
 	int i = 0;
 	int signal[18] = {1,0,1,0,1,0,2,0,2,0,2,0,1,0,1,0,1,0};
+	int cur = signal[i];
 	/* Infinite loop */
 	while(1){
-		int cur = signal[i];
 		uint32_t PrevTicks = HAL_GetTick();
 		uint32_t CurrentTicks = HAL_GetTick();
 		switch(cur){
 			  /*space*/
 			  case 0:
-				  /*LED off for 1 second*/
-				  BSP_LED_On(LED2);
+				  /*LED on for 1 second*/
 				  while((CurrentTicks-PrevTicks)<=1000){
 					CurrentTicks = HAL_GetTick();
-				  }
+				  }BSP_LED_Off(LED2);
 			  break;
 			  /*dot*/
 			  case 1:
-				  /*LED on for 1 second*/
-				  BSP_LED_On(LED2);
+				  /*LED on for 1 seconds*/
 				  while ((CurrentTicks-PrevTicks)<=1000){
 					CurrentTicks = HAL_GetTick();
-				  }
+				  }BSP_LED_On(LED2);
 			  break;
 			  /*dash*/
 			  case 2:
-				  /*LED on for 3 seconds*/
-				  BSP_LED_On(LED2);
+				  /*LED off for 3 second*/
 				  while ((CurrentTicks-PrevTicks)<=3000){
 					CurrentTicks = HAL_GetTick();
-				  }
+				  }BSP_LED_On(LED2);
 			  break;
-		  }i++;
+		  }
+		PrevTicks = CurrentTicks;
+		i++;
 	}
 }
 /**

@@ -1,5 +1,5 @@
-00:28:42 **** Programming project Blinky0 on chip ****
-/Applications/Ac6/SystemWorkbench.app/Contents/Eclipse/plugins/fr.ac6.mcu.externaltools.openocd.macos64_1.22.0.201902141520/tools/openocd/bin/openocd -f stm32.flash.3229945770526957877.cfg -s /Users/erinpayne/Downloads/lab4blinky/Blinky0 -s /Applications/Ac6/SystemWorkbench.app/Contents/Eclipse/plugins/fr.ac6.mcu.debug_2.4.0.201902141520/resources/openocd/st_scripts -c "program Debug/Blinky0.elf verify exit" 
+12:00:28 **** Programming project Blinky0 on chip ****
+/Applications/Ac6/SystemWorkbench.app/Contents/Eclipse/plugins/fr.ac6.mcu.externaltools.openocd.macos64_1.22.0.201902141520/tools/openocd/bin/openocd -f stm32.flash.1729988515052984789.cfg -s /Users/erinpayne/Downloads/lab4blinky/Blinky0 -s /Applications/Ac6/SystemWorkbench.app/Contents/Eclipse/plugins/fr.ac6.mcu.debug_2.4.0.201902141520/resources/openocd/st_scripts -c "program Debug/Blinky0.elf verify exit" 
 Open On-Chip Debugger 0.10.0-dev-00019-g5352c55 (2019-02-14-15:37)
 Licensed under GNU GPL v2
 For bug reports, read
@@ -17,7 +17,7 @@ Info : Unable to match requested speed 8000 kHz, using 4000 kHz
 Info : Stlink adapter speed set to 4000 kHz
 Info : STM32L475VGTx.cpu: hardware has 6 breakpoints, 4 watchpoints
 target halted due to debug-request, current mode: Thread 
-xPSR: 0x01000000 pc: 0x08001b64 msp: 0x20018000
+xPSR: 0x01000000 pc: 0x08001c1c msp: 0x20018000
 ** Programming Started **
 auto erase enabled
 Info : Device id = 0x10076415
@@ -27,16 +27,16 @@ Error: Whole bank access must start at beginning of bank.
 target halted due to breakpoint, current mode: Thread 
 xPSR: 0x61000000 pc: 0x20000050 msp: 0x20018000
 Info : block write succeeded
-wrote 10240 bytes from file Debug/Blinky0.elf in 0.974252s (10.264 KiB/s)
+wrote 10240 bytes from file Debug/Blinky0.elf in 0.824734s (12.125 KiB/s)
 ** Programming Finished **
 ** Verify Started **
 target halted due to breakpoint, current mode: Thread 
 xPSR: 0x61000000 pc: 0x2000002e msp: 0x20018000
 target halted due to breakpoint, current mode: Thread 
 xPSR: 0x61000000 pc: 0x2000002e msp: 0x20018000
-verified 8784 bytes in 0.974657s (8.801 KiB/s)
+verified 8928 bytes in 0.974919s (8.943 KiB/s)
 ** Verified OK **
 shutdown command invoked
 
-00:28:45 Build Finished (took 2s.601ms)
+12:00:31 Build Finished (took 2s.731ms)
 
