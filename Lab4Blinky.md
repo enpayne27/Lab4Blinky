@@ -10,6 +10,7 @@ Then click the black reset button on the board and your most recent code should 
 
 The following is the final code I used for the repeated 1 second blink:
 
+```
 static void SystemClock_Config(void);
 int main(void)
 {
@@ -23,16 +24,19 @@ int main(void)
   uint32_t PrevTicks = HAL_GetTick();
   while (1)
   {
-uint32_T CurrentTicks = HAL_GetTick();
+uint32_t CurrentTicks = HAL_GetTick();
 if ((CurrentTicks-PrevTicks)>= 1000){
 PrevTicks = CurrentTicks;
 BSP_LED_Toggle(LED2);
 }
   }
 }
+```
+
 
 The following is the final code I used for the SOS blink:
 
+```
 static void SystemClock_Config(void);
 int main(void)
 {
@@ -77,3 +81,4 @@ int main(void)
 		  }i++;
 	}
 }
+```
