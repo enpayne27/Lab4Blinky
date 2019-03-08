@@ -23,12 +23,40 @@ int main(void)
   BSP_LED_Off(LED2);
   /* Infinite loop */
   uint32_t PrevTicks = HAL_GetTick();
-  while (1)
-  {
-	  uint32_t CurrentTicks = HAL_GetTick();
-	  if ((CurrentTicks-PrevTicks)%1000==0){
+  uint32_t CurrentTicks = HAL_GetTick();
+  int signal[36] = {1,0,1,0,1,0,2,0,2,0,2,0,1,0,1,0,1,0};
+  int cur = 0;
+
+  switch(cur){
+  	  /*space*/
+  	  case 0:
+  		  /*LED on for 1 second*/
+  		  while((CurrentTicks-PrevTicks)<= 1000){
+  			CurrentTicks = HAL_GetTick();
+  		  }BSP_LED_Off(LED2);
+	  break;
+	  /*dot*/
+  	  case 1:
+  		  /*LED on for 1 seconds*/
+  		  while ((CurrentTicks-PrevTicks)<= 1000){
+  			CurrentTicks = HAL_GetTick();
+  		  }BSP_LED_On(LED2);
+	  break;
+	  /*dash*/
+  	  case 2:
+  		  /*LED off for 3 second*/
+  		  while ((CurrentTicks-PrevTicks)<=3000){
+  			CurrentTicks = HAL_GetTick();
+  		  }BSP_LED_On(LED2);
+	  break;
+	  }
+  while(1){
+	  CurrentTicks = HAL_GetTick();
+	  PrevTicks = CurrentTicks;
+	  for(int i = 0; i < 18; i++) {
+		  cur = signal[i];
 		  PrevTicks = CurrentTicks;
-		  BSP_LED_Toggle(LED2);
+		  CurrentTicks = HAL_GetTick();
 	  }
   }
 }
