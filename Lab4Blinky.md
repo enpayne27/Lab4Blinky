@@ -1,7 +1,7 @@
 In today's lab we learned a lot about the STM32 Discovery board. The IDE we used
-System Workbench through Eclipse. Besides learning the basic processes of the
-board, this lab offered a lot of insight into the functionality of the board's
-clock cycles and LED configurations.
+was the System Workbench through Eclipse. Besides learning the basic processes 
+of the board, this lab offered a lot of insight into the functionality of the 
+board's clock cycles and LED configurations.
 
 Tips for programming the STM board:
 Go into the Project Explorer and right click
